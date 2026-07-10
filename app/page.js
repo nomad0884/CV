@@ -294,8 +294,7 @@ export default function Home() {
             </h2>
             <p>suman2022@naver.com</p>
             <div className="btns">
-              <a className="btn primary" href="mailto:suman2022@naver.com">이메일 보내기</a>
-              <a className="btn ghost" href="https://github.com/nomad0884" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a className="btn primary" href="https://github.com/nomad0884" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </div>
