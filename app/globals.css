@@ -58,7 +58,11 @@ nav.scrolled { border-color: var(--line); }
   text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--ink); }
-@media (max-width: 640px) { .nav-links { display: none; } }
+@media (max-width: 640px) {
+  .nav-links { gap: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; max-width: 62vw; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: 11.5px; flex: none; }
+}
 
 header {
   position: relative; min-height: 100svh; display: flex; align-items: center;
@@ -145,6 +149,50 @@ footer { padding: 40px 0 60px; text-align: center; font-family: var(--mono); fon
   html { scroll-behavior: auto; }
 }
 
+/* ===== 모바일 보정 ===== */
+/* 터치 기기에서는 hover가 없으므로 확대 배지를 항상 표시 */
+@media (hover: none) {
+  .shot-zoom { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  section { padding: 68px 0; }
+  .nav-in { padding: 13px 20px; }
+  .brand { font-size: 15px; }
+
+  header { padding-top: 88px; }
+  .portrait { width: min(230px, 60vw); }
+  .name { margin-bottom: 18px; }
+  .lede { margin-bottom: 26px; }
+  .chip { font-size: 12.5px; padding: 6px 12px; }
+  .scroll-cue { display: none; }
+
+  .value-card { padding: 22px 20px; }
+  .stack-card { padding: 18px; }
+  .proj { padding: 32px 0; }
+  .pub { padding: 18px; gap: 16px; }
+  .contact { padding: 52px 20px; border-radius: 24px; }
+
+  /* 상세 페이지 */
+  .dtb-in { padding: 12px 20px; }
+  .detail-hero { padding: 104px 0 12px; }
+  .detail-title { margin-bottom: 12px; }
+  .detail-strip { margin-top: 22px; }
+  .dm { padding: 12px 18px; gap: 10px; }
+  .dm-num { font-size: 27px; }
+  .gallery { gap: 30px; padding: 30px 0 10px; }
+  .shot-frame { border-radius: 14px; }
+  .shot figcaption { font-size: 13.5px; }
+  .detail-info { gap: 14px; padding: 26px 0 40px; }
+  .di-main { gap: 14px; }
+  .di-side { gap: 14px; }
+  .di-card { padding: 20px; }
+  .di-card p { font-size: 15.5px; }
+  .db-label { font-size: 13px; }
+  .dn-link { padding: 15px 18px; }
+}
+
 /* ===== 자세히 보기 버튼 (메인 카드) ===== */
 .detail-link {
   display: inline-flex; align-items: center; margin-top: 14px;
@@ -182,7 +230,7 @@ footer { padding: 40px 0 60px; text-align: center; font-family: var(--mono); fon
 .dtb-home { font-family: var(--mono); font-size: 14px; color: var(--indigo); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
 .dtb-home:hover { color: var(--ink); }
 .dtb-title { font-family: var(--body); font-size: 13.5px; color: var(--muted); flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.dtb-brand { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; }
+.dtb-brand { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap; margin-left: auto; }
 .dtb-brand:hover { color: var(--indigo); }
 @media (max-width: 560px) { .dtb-title { display: none; } }
 
