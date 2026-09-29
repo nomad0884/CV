@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { projects, order } from "../projects-data";
 import ProjectDetail from "../../components/ProjectDetail";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return order.map((slug) => ({ slug }));
 }
@@ -9,7 +11,8 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const p = projects[params.slug];
   if (!p) return {};
-  return { title: `${p.title} — 김수만`, description: p.subtitle };
+  const title = `${p.title} — 김수만`;
+  return { title, description: p.subtitle, openGraph: { title, description: p.subtitle, type: "article" } };
 }
 
 export default function WorkPage({ params }) {
@@ -22,5 +25,5 @@ export default function WorkPage({ params }) {
   const prev = prevSlug ? { slug: prevSlug, title: projects[prevSlug].title } : null;
   const next = nextSlug ? { slug: nextSlug, title: projects[nextSlug].title } : null;
 
-  return <ProjectDetail project={project} prev={prev} next={next} />;
+  return <ProjectDetail project={project} slug={params.slug} prev={prev} next={next} />;
 }

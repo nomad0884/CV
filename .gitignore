@@ -7,3 +7,6 @@
 npm-debug.log*
 .env*.local
 .vercel
+
+# 가리기 전 원본 이미지 (민감 정보 포함) — 커밋 금지
+/add_images
