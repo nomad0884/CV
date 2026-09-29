@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SITE_URL, SHARE_IMAGE } from "./site-config";
 
 // 영문 UI 폰트: Mac은 SF Pro(시스템), 그 외 OS는 Inter
 const inter = Inter({
@@ -9,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "김수만 — Portfolio",
   description:
     "실제 업무의 병목을 자동화하는 풀스택 · AI 개발자 김수만의 포트폴리오. NL2SQL 프로젝트, 준법 검토 시스템, K-POP 안무 유사도 검출, 뉴스 · 공시 분석 파이프라인과 KICS 논문 2편.",
@@ -16,6 +18,16 @@ export const metadata = {
     title: "김수만 — Portfolio",
     description: "실제 업무의 병목을 자동화하는 풀스택 · AI 개발자",
     type: "website",
+    url: "/",
+    siteName: "김수만 Portfolio",
+    locale: "ko_KR",
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "김수만 — Portfolio",
+    description: "실제 업무의 병목을 자동화하는 풀스택 · AI 개발자",
+    images: [SHARE_IMAGE.url],
   },
 };
 
