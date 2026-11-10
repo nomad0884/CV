@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, SHARE_IMAGE } from "./site-config";
+import { Analytics } from "@vercel/analytics/next";
 
 // 영문 UI 폰트: Mac은 SF Pro(시스템), 그 외 OS는 Inter
 const inter = Inter({
@@ -43,7 +44,10 @@ export default function RootLayout({ children }) {
         {/* JS가 켜진 경우에만 스크롤 등장 효과용으로 콘텐츠를 숨김 */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      <body id="top">{children}</body>
+      <body id="top">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
